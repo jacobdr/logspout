@@ -285,7 +285,7 @@ func (p *LogsPump) Route(route *Route, logstream chan *Message) {
 		select {
 		case event := <-updates:
 			switch event.Status {
-			case "start":
+			case "start", "restart":
 				if route.MatchContainer(
 					normalID(event.pump.container.ID),
 					normalName(event.pump.container.Name),
